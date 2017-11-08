@@ -82,11 +82,13 @@ alias grep="grep --color"
 alias ls="ls -al -G"
 
 ## cd (navigation)
-alias auto="cd ~/00/0_autodidact"
+alias awg="cd ~/00/awg"
+alias auto="cd ~/00/zz-autodidact"
 alias comp="cd ~/00/competitive/"
 alias d0="cd ~/0_deck_dojo/"
 alias d1="cd ~/1_deck_dojo/"
 alias d2="cd ~/2_deck_dojo/"
+alias dot="cd ~/00/dotfiles"
 alias misc="cd ~/0_deck_dojo/misc-debris/"
 alias ref="cd ~/00/reference/"
 
