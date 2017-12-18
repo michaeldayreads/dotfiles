@@ -67,7 +67,10 @@ PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
 export PATH
 
 export PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH
-export EDITOR='subl -w'
+
+export GOPATH=/Users/day/0_deck_dojo
+export PATH=$PATH:$GOPATH/bin
+
 
 # virtualenv
 # TODO pip install virtualenvwrapper ??
@@ -83,34 +86,45 @@ alias ls="ls -al -G"
 
 ## cd (navigation)
 alias awg="cd ~/00/awg"
-alias auto="cd ~/00/zz-autodidact"
+alias auto="cd ~/0_deck_dojo/zz-autodidact"
 alias comp="cd ~/00/competitive/"
 alias d0="cd ~/0_deck_dojo/"
 alias d1="cd ~/1_deck_dojo/"
 alias d2="cd ~/2_deck_dojo/"
+alias da="cd ~/00/awg/importer/ud/0/"
+alias db="cd ~/00/awg/importer/ud/w2016/"
 alias dot="cd ~/00/dotfiles"
 alias misc="cd ~/0_deck_dojo/misc-debris/"
 alias ref="cd ~/00/reference/"
+alias src="cd ~/0_deck_dojo/src"
+alias zd="cd ~/00/zto"
 
 ## vim etc. (quick edit, source etc.)
 alias b.v="vim ~/.bash_profile"
 alias b.s="source ~/.bash_profile"
 alias b.c="cp ~/.bash_profile ~/00/dotfiles/.bash_profile"
-alias da="vim ~/00/awg/importer/ud/0/dojo.txt"
-alias db="vim ~/00/awg/importer/ud/w2016/dojo.txt"
-alias zto="vim ~/00/awg/zto/roadmap.txt"
+alias zto="vim ~/00/zto/legend.zto"
+alias ztorm="vim ~/00/awg/zto/roadmap.txt"
 
 ## the rest
 alias aa="alias -p"
 alias dev="ssh -A 10.190.25.35"
 alias f.n="find . -name"
+alias g="git"
+alias g.a="git add"
 alias g.b="git branch"
+alias g.C="git commit"
 alias g.co="git checkout"
+alias g.d="git diff"
+alias g.f="git fetch --all"
 alias g.e="vim .git/info/exclude"
 alias g.l="git log --format=\"%C(auto)%h %s %an %cd\" --date=local"
 alias g.g="git log --graph --decorate --oneline --color"
+alias g.mff="git merge --ff-only"
+alias g.p="git push"
 alias g.rbm="git rebase master"
 alias g.s="git status"
+alias g.st="git stash"
 alias hist="history | grep"
 alias py2="python"
 alias py3="python3"
