@@ -16,20 +16,19 @@ function GITBRANCH {
 }
 
 
-# TODO identify why the ssh check works on devmachine but not deck
-#function ssh_key_fps_and_fns {
-#    if [[ `ssh-add 2>&1` == *"Could not open a connection"* ]]
-#    then
-#        echo No ssh-agent
-#    else
-#        KEYFNAMES=''
-#        for FNAME in `ssh-add -l | cut -d ' ' -f 3`;
-#        do
-#            KEYFNAMES=$KEYFNAMES' '${FNAME##*/}
-#        done
-#        echo $KEYFNAMES
-#    fi
-#}
+function ssh_key_fps_and_fns {
+    if [[ `ssh-add 2>&1` == *"Could not open a connection"* ]]
+    then
+        echo No ssh-agent
+    else
+        KEYFNAMES=''
+        for FNAME in `ssh-add -l | cut -d ' ' -f 3`;
+        do
+            KEYFNAMES=$KEYFNAMES' '${FNAME##*/}
+        done
+        echo $KEYFNAMES
+    fi
+}
 
 
 function set_color_prompt {
@@ -61,6 +60,8 @@ function set_color_prompt {
 export PROMPT_COMMAND=set_color_prompt
 export PYTHONDONTWRITEBYTECODE=1
 
+# /@zancas
+
 # Setting PATH for Python 3.5
 # The original version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
@@ -71,22 +72,20 @@ export PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH
 export GOPATH=/Users/day/0_deck_dojo
 export PATH=$PATH:$GOPATH/bin
 
+ssh-add ~/.ssh/id_rsa_testlab
 
-# virtualenv
-# TODO pip install virtualenvwrapper ??
-# export WORKON_HOME=~/.virtualenvs
-# source /usr/local/bin/virtualenvwrapper.sh
+# champ is a collection of bash/python tiny tools
+# as they evolve to 0.1.0, a shim of alisases / functions lets us use them
+source ~/0_deck_dojo/champ/.champ_shim
 
-# histash="~/0_deck_dojo/00/stash/hist/"
-
-
-# aliases
+# other aliases
 alias grep="grep --color"
 alias ls="ls -al -G"
 
 ## cd (navigation)
 alias awg="cd ~/00/awg"
 alias auto="cd ~/0_deck_dojo/zz-autodidact"
+alias champ="cd ~/0_deck_dojo/champ/"
 alias comp="cd ~/00/competitive/"
 alias d0="cd ~/0_deck_dojo/"
 alias d1="cd ~/1_deck_dojo/"
@@ -120,16 +119,16 @@ alias g.f="git fetch --all"
 alias g.e="vim .git/info/exclude"
 alias g.l="git log --format=\"%C(auto)%h %s %an %cd\" --date=local"
 alias g.g="git log --graph --decorate --oneline --color"
+alias g.m="git merge"
 alias g.mff="git merge --ff-only"
 alias g.p="git push"
-alias g.rbm="git rebase master"
+alias g.r="git rebase"
 alias g.s="git status"
 alias g.st="git stash"
 alias hist="history | grep"
 alias py2="python"
 alias py3="python3"
 alias rcl=". ~/00/day-openrc.sh"
-alias ve="ls -l ~/00/ve"
+alias ve="ls -l ~/.venv"
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-
