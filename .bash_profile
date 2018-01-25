@@ -72,11 +72,15 @@ export PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH
 export GOPATH=/Users/day/0_deck_dojo
 export PATH=$PATH:$GOPATH/bin
 
-ssh-add ~/.ssh/id_rsa_testlab
-
 # champ is a collection of bash/python tiny tools
 # as they evolve to 0.1.0, a shim of alisases / functions lets us use them
 source ~/0_deck_dojo/champ/.champ_shim
+
+# host / context specific rc
+source ~/0_deck_dojo/misc-debris/.context_bash_rc
+
+# git autocompletion
+source ~/.git-completion.bash
 
 # other aliases
 alias grep="grep --color"
@@ -128,7 +132,6 @@ alias g.st="git stash"
 alias hist="history | grep"
 alias py2="python"
 alias py3="python3"
-alias rcl=". ~/00/day-openrc.sh"
 alias ve="ls -l ~/.venv"
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
