@@ -102,6 +102,11 @@ alias ref="cd ~/00/reference/"
 alias src="cd ~/0_deck_dojo/src"
 alias zd="cd ~/00/zto"
 
+## k8s
+alias k.all='kubectl get ing,po,deploy,cm,rs,rc,svc --all-namespaces'
+alias k.t='kubectl get ing,po,deploy,cm,rs,rc,svc --all-namespaces | grep -P " \ds| \d\ds| \dh| \d\dh| \d\dm| \dm"'
+alias gr.today='grep -P " \ds| \d\ds| \dh| \d\dh| \d\dm| \dm"'
+
 ## vim etc. (quick edit, source etc.)
 alias b.v="vim ~/.bash_profile"
 alias b.s="source ~/.bash_profile"
