@@ -103,6 +103,7 @@ alias src="cd ~/0_deck_dojo/src"
 alias zd="cd ~/00/zto"
 
 ## k8s
+alias helm.dry="helm install --debug --dry-run"
 alias k.all='kubectl get ing,po,deploy,cm,rs,rc,svc --all-namespaces'
 alias k.t='kubectl get ing,po,deploy,cm,rs,rc,svc --all-namespaces | grep -P " \ds| \d\ds| \dh| \d\dh| \d\dm| \dm"'
 alias gr.today='grep -P " \ds| \d\ds| \dh| \d\dh| \d\dm| \dm"'
