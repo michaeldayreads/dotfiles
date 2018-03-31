@@ -111,13 +111,9 @@ alias gr.today='grep -P " \ds| \d\ds| \dh| \d\dh| \d\dm| \dm"'
 ## vim etc. (quick edit, source etc.)
 alias b.v="vim ~/.bash_profile"
 alias b.s="source ~/.bash_profile"
-alias b.c="cp ~/.bash_profile ~/00/dotfiles/.bash_profile"
-alias zto="vim ~/00/zto/legend.zto"
-alias ztorm="vim ~/00/awg/zto/roadmap.txt"
 
 ## the rest
 alias aa="alias -p"
-alias dev="ssh -A 10.190.25.35"
 alias f.n="find . -name"
 alias g="git"
 alias g.a="git add"
@@ -133,6 +129,7 @@ alias g.m="git merge"
 alias g.mff="git merge --ff-only"
 alias g.p="git push"
 alias g.r="git rebase"
+alias g.rv="git remote -v"
 alias g.s="git status"
 alias g.st="git stash"
 alias hist="history | grep"
