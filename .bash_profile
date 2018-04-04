@@ -72,12 +72,10 @@ export PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH
 export GOPATH=/Users/day/0_deck_dojo
 export PATH=$PATH:$GOPATH/bin
 
-# champ is a collection of bash/python tiny tools
-# as they evolve to 0.1.0, a shim of alisases / functions lets us use them
-source ~/0_deck_dojo/champ/.champ_shim
-
 # host / context specific rc
-source ~/0_deck_dojo/misc-debris/.context_bash_rc
+if [[ -f ~/0_deck_dojo/misc-debris/.context_bash_rc ]]; then
+    source ~/0_deck_dojo/misc-debris/.context_bash_rc
+fi
 
 # git autocompletion
 source ~/.git-completion.bash
@@ -87,23 +85,18 @@ alias grep="grep --color"
 alias ls="ls -al -G"
 
 ## cd (navigation)
-alias awg="cd ~/00/awg"
 alias auto="cd ~/0_deck_dojo/zz-autodidact"
-alias champ="cd ~/0_deck_dojo/champ/"
+alias champ="cd ~/00/champ/"
 alias comp="cd ~/00/competitive/"
 alias d0="cd ~/0_deck_dojo/"
 alias d1="cd ~/1_deck_dojo/"
 alias d2="cd ~/2_deck_dojo/"
-alias da="cd ~/00/awg/importer/ud/0/"
-alias db="cd ~/00/awg/importer/ud/w2016/"
-alias dot="cd ~/00/dotfiles"
+alias dot="cd ~/dotfiles"
 alias misc="cd ~/0_deck_dojo/misc-debris/"
 alias ref="cd ~/00/reference/"
 alias src="cd ~/0_deck_dojo/src"
-alias zd="cd ~/00/zto"
 
 ## k8s
-alias helm.dry="helm install --debug --dry-run"
 alias k.all='kubectl get ing,po,deploy,cm,rs,rc,svc --all-namespaces'
 alias k.t='kubectl get ing,po,deploy,cm,rs,rc,svc --all-namespaces | grep -P " \ds| \d\ds| \dh| \d\dh| \d\dm| \dm"'
 alias gr.today='grep -P " \ds| \d\ds| \dh| \d\dh| \d\dm| \dm"'
@@ -118,6 +111,7 @@ alias f.n="find . -name"
 alias g="git"
 alias g.a="git add"
 alias g.b="git branch"
+alias g.bv="git branch --all -vvv"
 alias g.C="git commit"
 alias g.co="git checkout"
 alias g.d="git diff"
@@ -136,5 +130,3 @@ alias hist="history | grep"
 alias py2="python"
 alias py3="python3"
 alias ve="ls -l ~/.venv"
-
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
