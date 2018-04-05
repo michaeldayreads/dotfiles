@@ -78,7 +78,9 @@ if [[ -f ~/0_deck_dojo/misc-debris/.context_bash_rc ]]; then
 fi
 
 # git autocompletion
-source ~/.git-completion.bash
+if [[ -f ~/.git-completion.bash ]]; then
+    source ~/.git-completion.bash
+fi
 
 # other aliases
 alias grep="grep --color"
