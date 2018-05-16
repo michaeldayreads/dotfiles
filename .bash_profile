@@ -62,15 +62,8 @@ export PYTHONDONTWRITEBYTECODE=1
 
 # /@zancas
 
-# Setting PATH for Python 3.5
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
-export PATH
-
-export PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH
-
 export GOPATH=/Users/day/0_deck_dojo
-export PATH=$PATH:$GOPATH/bin
+export PATH="$PATH:$GOPATH:/Library/Frameworks/Python.framework/Versions/3.5/bin"
 
 # host / context specific rc
 if [[ -f ~/0_deck_dojo/misc-debris/.context_bash_rc ]]; then
