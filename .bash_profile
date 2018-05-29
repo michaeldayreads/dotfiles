@@ -34,7 +34,7 @@ function ssh_key_fps_and_fns {
 function set_color_prompt {
     RC=$?;
     DATE="\033[1;36m`date` \033[0m||"
-    USERHOSTBRANCH='\033[1;34m`hostname`\033[0m \033[1;34m`whoami`\033[0m \033[1;35m$(GITBRANCH)\033[0m'
+    USERHOSTBRANCH='\033[1;34m`hostname -s`\033[0m \033[1;34m`whoami`\033[0m \033[1;35m$(GITBRANCH)\033[0m'
     if [  ${RC} -eq 0 ]
     then
         PWDRC='\033[1;32m${PWD}\033[0m\033[1;31m: ${RC} \033[0m$'
@@ -62,8 +62,11 @@ export PYTHONDONTWRITEBYTECODE=1
 
 # /@zancas
 
-export GOPATH=/Users/day/0_deck_dojo
-export PATH="$PATH:$GOPATH:/Library/Frameworks/Python.framework/Versions/3.5/bin"
+export GOPATH=/Users/day/Go
+PATH="$PATH:$GOPATH/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin"
+# per brew install of go, adding GOROOT-based install location
+PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH
 
 # host / context specific rc
 if [[ -f ~/0_deck_dojo/misc-debris/.context_bash_rc ]]; then
@@ -90,7 +93,7 @@ alias d2="cd ~/2_deck_dojo/"
 alias dot="cd ~/dotfiles"
 alias misc="cd ~/0_deck_dojo/misc-debris/"
 alias ref="cd ~/00/reference/"
-alias src="cd ~/0_deck_dojo/src"
+alias src="cd ~/Go/src"
 
 ## k8s
 alias k.all='kubectl get ing,po,deploy,cm,rs,rc,svc --all-namespaces'
