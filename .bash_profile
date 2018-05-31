@@ -77,6 +77,7 @@ fi
 
 # other aliases
 alias grep="grep --color"
+alias grep.ev="grep -rnI --exclude-dir=vendor"
 alias ls="ls -al -G"
 
 ## cd (navigation)
