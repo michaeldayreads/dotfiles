@@ -82,6 +82,7 @@ fi
 alias grep="grep --color"
 alias grep.ev="grep -rnI --exclude-dir=vendor"
 alias ls="ls -al -G"
+alias histlog="history > ~/.histlog/$TERM_SESSION_ID.log"
 
 ## cd (navigation)
 alias auto="cd ~/Go/src/github.com/recursivelycurious/zz-autodidact"
