@@ -78,6 +78,9 @@ if [[ -f ~/.git-completion.bash ]]; then
     source ~/.git-completion.bash
 fi
 
+#git it done
+alias active="ls -1 $G2DPATH"
+
 # other aliases
 alias grep="grep --color"
 alias grep.ev="grep -rnI --exclude-dir=vendor"
@@ -85,11 +88,11 @@ alias ls="ls -al -G"
 alias histlog="history > ~/.histlog/$TERM_SESSION_ID.log"
 
 ## cd (navigation)
-alias auto="cd ~/Go/src/github.com/recursivelycurious/zz-autodidact"
-alias comp="cd ~/00/competitive/"
+alias auto="cd ~/Go/src/github.com/recursivelycurious/autodidact"
+alias comp="cd ~/Go/src/github.com/recursivelycurious/competitive/"
 alias dot="cd ~/dotfiles"
 alias misc="cd ~/0_deck_dojo/misc-debris/"
-alias ref="cd ~/00/reference/"
+alias ref="cd ~/Go/src/github.com/recursivelycurious/reference/"
 alias src="cd ~/Go/src"
 
 ## k8s
