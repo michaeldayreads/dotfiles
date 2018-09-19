@@ -2,7 +2,7 @@ HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S: "
 
 # @zancas
 function GITBRANCH {
-    if [[ `git branch 2>&1` == *"Not a git repository"* ]]
+    if [[ `git branch 2>&1` == *"ot a git repository"* ]]
     then
         echo No git repo
     else
