@@ -62,6 +62,12 @@ export PYTHONDONTWRITEBYTECODE=1
 
 # /@zancas
 
+grex() {
+	grep --color=always --exclude-dir vendor --exclude-dir ".git*" "$@"
+}
+
+export -f grex
+
 export GOPATH=/Users/day/Go
 PATH="$PATH:$GOPATH/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin"
 # per brew install of go, adding GOROOT-based install location
@@ -83,7 +89,6 @@ alias active="ls -1 $G2DPATH"
 
 # other aliases
 alias grep="grep --color"
-alias grep.ev="grep -rnI --exclude-dir=vendor"
 alias ls="ls -al -G"
 alias histlog="history > ~/.histlog/$TERM_SESSION_ID.log"
 
