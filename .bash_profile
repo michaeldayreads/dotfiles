@@ -1,4 +1,8 @@
+# script vars
 HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S: "
+
+# env vars
+export histdir=~/.histlog/
 
 # @zancas
 function GITBRANCH {
