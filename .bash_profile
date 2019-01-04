@@ -95,6 +95,7 @@ alias active="ls -1 $G2DPATH"
 alias grep="grep --color"
 alias ls="ls -al -G"
 alias histlog="history > ~/.histlog/$TERM_SESSION_ID.log"
+alias bpylog="cp ~/.pythonhist ~/.pythonhistlog/$TERM_SESSION_ID.log"
 
 ## cd (navigation)
 alias auto="cd ~/Go/src/github.com/recursivelycurious/autodidact"
