@@ -72,6 +72,13 @@ grex() {
 
 export -f grex
 
+psycle() {
+	STAMP=$(date "+%Y%m%d-%H%M")
+	echo $STAMP -- $@ >> ~/.psycle.log
+}
+
+export psycle
+
 export GOPATH=/Users/day/Go
 PATH="$PATH:$GOPATH/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin"
 # per brew install of go, adding GOROOT-based install location
@@ -96,6 +103,7 @@ alias grep="grep --color"
 alias ls="ls -al -G"
 alias histlog="history > ~/.histlog/$TERM_SESSION_ID.log"
 
+
 # python
 alias bpylog="cp ~/.pythonhist ~/.pythonhistlog/$TERM_SESSION_ID.log"
 alias py.lint="clear && ~/dotfiles/tools/linter.sh"
@@ -106,6 +114,7 @@ alias comp="cd ~/Go/src/github.com/recursivelycurious/competitive/"
 alias dot="cd ~/dotfiles"
 alias misc="cd ~/0_deck_dojo/misc-debris/"
 alias ref="cd ~/Go/src/github.com/recursivelycurious/reference/"
+alias rc="cd ~/Go/src/github.com/recursivelycurious/"
 alias src="cd ~/Go/src"
 
 ## k8s
