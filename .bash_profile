@@ -74,10 +74,19 @@ export -f grex
 
 psycle() {
 	STAMP=$(date "+%Y%m%d-%H%M")
-	echo $STAMP -- $@ >> ~/.psycle.log
+	echo $STAMP -- >> ~/.psycle.log
+	vim ~/.psycle.log
 }
 
-export psycle
+export -f psycle
+
+devlog() {
+	STAMP=$(date "+%Y%m%d-%H%M")
+	echo $STAMP -- >> ~/.master.log
+	vim ~/.master.log
+}
+
+export -f devlog
 
 export GOPATH=/Users/day/Go
 PATH="$PATH:$GOPATH/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin"
@@ -108,14 +117,15 @@ alias histlog="history > ~/.histlog/$TERM_SESSION_ID.log"
 alias bpylog="cp ~/.pythonhist ~/.pythonhistlog/$TERM_SESSION_ID.log"
 alias py.lint="clear && ~/dotfiles/tools/linter.sh"
 
-## cd (navigation)
-alias auto="cd ~/Go/src/github.com/recursivelycurious/autodidact"
-alias comp="cd ~/Go/src/github.com/recursivelycurious/competitive/"
-alias dot="cd ~/dotfiles"
-alias misc="cd ~/0_deck_dojo/misc-debris/"
-alias ref="cd ~/Go/src/github.com/recursivelycurious/reference/"
-alias rc="cd ~/Go/src/github.com/recursivelycurious/"
-alias src="cd ~/Go/src"
+## navigation vars
+shopt -s cdable_vars
+export auto=~/Go/src/github.com/recursivelycurious/autodidact
+export comp=~/Go/src/github.com/recursivelycurious/competitive/
+export dot=~/dotfiles
+export misc=~/0_deck_dojo/misc-debris/
+export ref=~/Go/src/github.com/recursivelycurious/reference/
+export rc=~/Go/src/github.com/recursivelycurious/
+export src=~/Go/src
 
 ## k8s
 alias k.all='kubectl get ing,po,deploy,cm,rs,rc,svc --all-namespaces'
