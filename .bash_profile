@@ -1,4 +1,5 @@
 # script vars
+export FOCUS=" FOCUS? "
 HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S: "
 
 # env vars
@@ -57,7 +58,8 @@ function set_color_prompt {
     fi
 
     LINE0=$DATE' '$USERHOSTBRANCH'\n'
-#    LINE1=$(ssh_key_fps_and_fns)'\n'
+    LINE1='>> ${FOCUS} <<\n'
+    # LINE1=$(ssh_key_fps_and_fns)'\n'
     LINE2=$PYTHON_VIRTUALENV' -- '$PWDRC'\n'
     PS1=$LINE0$LINE1$LINE2
 }
@@ -87,6 +89,12 @@ devlog() {
 }
 
 export -f devlog
+
+focus() {
+	STAMP=$(date "+%Y%m%d-%H%M")
+	echo "${STAMP} -- -> ${1}" >> ~/.psycle.log
+	export FOCUS=$1
+}
 
 export GOPATH=/Users/day/Go
 PATH="$PATH:$GOPATH/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin"
