@@ -5,7 +5,7 @@ end=$1
 for ((i=end; i>0; i--))
 do
     printf "\r$i remaining...     "
-    sleep 1
+    sleep 60
 done
 
 echo -ne '\007'
