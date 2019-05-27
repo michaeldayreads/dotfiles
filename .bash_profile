@@ -102,8 +102,8 @@ PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH
 
 # host / context specific rc
-if [[ -f ~/0_deck_dojo/misc-debris/.context_bash_rc ]]; then
-    source ~/0_deck_dojo/misc-debris/.context_bash_rc
+if [[ -f ~/.context_bash_rc ]]; then
+    source ~/.context_bash_rc
 fi
 
 # git autocompletion
