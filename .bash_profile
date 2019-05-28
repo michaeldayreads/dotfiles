@@ -96,9 +96,12 @@ focus() {
 }
 
 export GOPATH=/Users/day/Go
-PATH="$PATH:$GOPATH/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin"
+#PATH="$PATH:$GOPATH/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin"
+PATH="$PATH:$GOPATH/bin"
 # per brew install of go, adding GOROOT-based install location
 PATH=$PATH:/usr/local/opt/go/libexec/bin
+# per brew for openssl
+PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH
 
 # host / context specific rc
