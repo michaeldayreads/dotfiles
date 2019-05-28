@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# set -ex
+
 YEL='\033[0;33m'
 GREEN='\033[0;32m'
 RED='\033[0;31m'
@@ -9,6 +11,10 @@ if [ "$1" == "" ]; then
     echo "[ERROR] directory or file to check expected as argument"
     exit 1
 fi
+
+echo $1
+echo $2
+echo $3
 
 # use numbers to drive modes
 pl_flag=1
@@ -42,6 +48,7 @@ lint() {
 if [ "$2" == "" ]; then
     echo "No tag/sha provided. Using 'find' method."
     find $1 -type f -name '*.py' | while read -r line; do
+        echo $line
         lint $line
         if [ $pl_flag -gt 0 ]; then
             pylinter $1
