@@ -121,7 +121,7 @@ alias active="ls -1 $G2DPATH"
 alias grep="grep --color"
 alias ls="ls -al -G"
 alias histlog="history > ~/.histlog/$TERM_SESSION_ID.log"
-alias tb="~/dotfiles/tools/timebox.sh"
+alias tb="clear && cat ~/.focus &&  ~/dotfiles/tools/timebox.sh"
 
 # python
 alias bpylog="cp ~/.pythonhist ~/.pythonhistlog/$TERM_SESSION_ID.log"
