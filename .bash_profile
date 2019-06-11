@@ -91,7 +91,7 @@ export -f devlog
 
 focus() {
 	STAMP=$(date "+%Y%m%d-%H%M")
-	echo "${STAMP} -- -> ${1}" >> ~/.psycle.log
+	echo "${STAMP} -- ${1}" >> ~/.psycle.log
 	echo $1 > ~/.focus
 }
 
