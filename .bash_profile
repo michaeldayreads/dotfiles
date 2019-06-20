@@ -57,7 +57,7 @@ function set_color_prompt {
     fi
 
     LINE0=$DATE' '$USERHOSTBRANCH'\n'
-    LINE1='>> '$(cat ~/.focus)' <<\n'
+    LINE1='[> '$(cat ~/.focus)' <]\n'
     # LINE1=$(ssh_key_fps_and_fns)'\n'
     LINE2=$PYTHON_VIRTUALENV' -- '$PWDRC'\n'
     PS1=$LINE0$LINE1$LINE2
@@ -75,7 +75,7 @@ export -f grex
 
 psycle() {
 	STAMP=$(date "+%Y%m%d-%H%M")
-	echo $STAMP -- >> ~/.psycle.log
+	echo "${STAMP}  " >> ~/.psycle.log
 	vim ~/.psycle.log
 }
 
@@ -91,7 +91,7 @@ export -f devlog
 
 focus() {
 	STAMP=$(date "+%Y%m%d-%H%M")
-	echo "${STAMP} -- ${1}" >> ~/.psycle.log
+	echo "${STAMP} ${1}" >> ~/.psycle.log
 	echo $1 > ~/.focus
 }
 
