@@ -95,6 +95,13 @@ focus() {
 	echo $1 > ~/.focus
 }
 
+today() {
+    TODAY=$(date "+%Y%m%d")
+    cat ~/.psycle.log | grep $TODAY
+}
+
+export -f today
+
 export GOPATH=/Users/day/Go
 #PATH="$PATH:$GOPATH/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin"
 PATH="$PATH:$GOPATH/bin"
