@@ -73,43 +73,50 @@ grex() {
 
 export -f grex
 
-psycle() {
-	STAMP=$(date "+%Y%m%d-%H%M")
-	echo "${STAMP}  " >> ~/.psycle.log
+# `.focus` shares data between terminal sessions
+# `.unit.log` records unit admin/IT events, issues and workarounds.
+# `.psycle.log` records dev cycle events and findings.
+
+finding() {
+        # Add note or finding to developer log; maintain focus.
+	STAMP=$(date)
+	echo "${STAMP} .. -- " >> ~/.psycle.log
 	vim ~/.psycle.log
 }
 
-export -f psycle
+export -f finding
 
-devlog() {
-	STAMP=$(date "+%Y%m%d-%H%M")
-	echo $STAMP -- >> ~/.master.log
-	vim ~/.master.log
+ulog() {
+        # Log event significant to unit state in unit log.
+	STAMP=$(date)
+	echo $STAMP -- >> ~/.unit.log
+	vim ~/.unit.log
 }
 
-export -f devlog
+export -f ulog
 
 focus() {
-	STAMP=$(date "+%Y%m%d-%H%M")
+        # Change focus and note in developer log.
+	STAMP=$(date)
 	echo "${STAMP} ${1}" >> ~/.psycle.log
 	echo $1 > ~/.focus
 }
 
 today() {
-    TODAY=$(date "+%Y%m%d")
+    TODAY=$(date "+%a %b %_d")
     cat ~/.psycle.log | grep $TODAY
 }
 
 export -f today
 
-export GOPATH=/Users/day/Go
-#PATH="$PATH:$GOPATH/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin"
-PATH="$PATH:$GOPATH/bin"
+# export GOPATH=/Users/day/gopath
+# was already # PATH="$PATH:$GOPATH/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin"
+# PATH="$PATH:$GOPATH/bin"
 # per brew install of go, adding GOROOT-based install location
-PATH=$PATH:/usr/local/opt/go/libexec/bin
+# PATH=$PATH:/usr/local/opt/go/libexec/bin
 # per brew for openssl
-PATH="/usr/local/opt/openssl/bin:$PATH"
-export PATH
+# PATH="/usr/local/opt/openssl/bin:$PATH"
+# export PATH
 
 # host / context specific rc
 if [[ -f ~/.context_bash_rc ]]; then
@@ -120,9 +127,6 @@ fi
 if [[ -f ~/.git-completion.bash ]]; then
     source ~/.git-completion.bash
 fi
-
-#git it done
-alias active="ls -1 $G2DPATH"
 
 # other aliases
 alias grep="grep --color"
@@ -136,13 +140,13 @@ alias py.lint="clear && ~/dotfiles/tools/linter.sh"
 
 ## navigation vars
 shopt -s cdable_vars
-export auto=~/Go/src/github.com/recursivelycurious/autodidact
-export comp=~/Go/src/github.com/recursivelycurious/competitive/
-export dot=~/dotfiles
-export misc=~/0_deck_dojo/misc-debris/
-export ref=~/Go/src/github.com/recursivelycurious/reference/
-export rc=~/Go/src/github.com/recursivelycurious/
-export src=~/Go/src
+export auto=~/code/rc/autodidact/
+export comp=~/code/rc/competitive/
+export dot=~/code/rc/dotfiles/
+export misc=~/code/misc-debris/
+export ref=~/code/rc/reference/
+export rc=~/code/rc/
+# export src=~/Go/src
 
 ## k8s
 alias k.all='kubectl get ing,po,deploy,cm,rs,rc,svc --all-namespaces'
