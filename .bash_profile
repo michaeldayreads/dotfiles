@@ -103,8 +103,9 @@ focus() {
 }
 
 today() {
-    TODAY=$(date "+%a %b %_d")
-    cat ~/.psycle.log | grep $TODAY
+    TODAY=$(date | awk '{print $1" "$2" "$3}')
+    echo $TODAY
+    cat ~/.psycle.log | grep "$TODAY"
 }
 
 export -f today
@@ -132,7 +133,7 @@ fi
 alias grep="grep --color"
 alias ls="ls -al -G"
 alias histlog="history > ~/.histlog/$TERM_SESSION_ID.log"
-alias tb="clear && cat ~/.focus &&  ~/dotfiles/tools/timebox.sh"
+alias tb="clear && cat ~/.focus &&  ~/code/rc/dotfiles/tools/timebox.sh"
 
 # python
 alias bpylog="cp ~/.pythonhist ~/.pythonhistlog/$TERM_SESSION_ID.log"
