@@ -141,7 +141,7 @@ alias py.lint="clear && ~/dotfiles/tools/linter.sh"
 
 ## navigation vars
 shopt -s cdable_vars
-export auto=~/code/rc/autodidact/
+export grok=~/code/rc/grok/
 export comp=~/code/rc/competitive/
 export dot=~/code/rc/dotfiles/
 export misc=~/code/misc-debris/
