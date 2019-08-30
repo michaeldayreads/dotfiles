@@ -81,7 +81,7 @@ result() {
         # Add note or finding to developer log; maintain focus.
 	STAMP=$(date)
 	echo "${STAMP} .. -- " >> ~/.psycle.log
-	vim ~/.psycle.log
+	vi ~/.psycle.log
 }
 
 export -f result
@@ -90,7 +90,7 @@ ulog() {
         # Log event significant to unit state in unit log.
 	STAMP=$(date)
 	echo $STAMP -- >> ~/.unit.log
-	vim ~/.unit.log
+	vi ~/.unit.log
 }
 
 export -f ulog
@@ -110,6 +110,7 @@ today() {
 
 export -f today
 
+# FIXME: this is mac specific, presumes gdate, should test for gdate/darwin
 yesterday() {
     YESTERDAY=$(gdate -d "yesterday" | awk '{print $1" "$2" "$3}')
     echo $YESTERDAY
@@ -117,6 +118,36 @@ yesterday() {
 }
 
 export -f yesterday
+
+curae() {
+  echo
+  cat ~/.deliverables.md | grep "\[\]"
+  echo
+}
+
+export -f curae
+
+factus() {
+  echo
+  cat ~/.deliverables.md | grep "<>"
+  echo
+}
+
+export -f factus
+
+ardui() {
+  vi ~/.deliverables.md
+}
+
+export -f ardui
+
+psycle() {
+  echo
+  cat ${dot}docs/focus_help.md
+  echo
+}
+
+export -f psycle
 
 # export GOPATH=/Users/day/gopath
 # was already # PATH="$PATH:$GOPATH/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin"
@@ -162,8 +193,8 @@ alias k.all='kubectl get ing,po,deploy,cm,rs,rc,svc --all-namespaces'
 alias k.t='kubectl get ing,po,deploy,cm,rs,rc,svc --all-namespaces | grep -P " \ds| \d\ds| \dh| \d\dh| \d\dm| \dm"'
 alias gr.today='grep -P " \ds| \d\ds| \dh| \d\dh| \d\dm| \dm"'
 
-## vim etc. (quick edit, source etc.)
-alias b.v="vim ~/.bash_profile"
+## vi etc. (quick edit, source etc.)
+alias b.v="vi ~/.bash_profile"
 alias b.s="source ~/.bash_profile"
 
 ## the rest
@@ -185,7 +216,7 @@ alias g.co="git checkout"
 alias g.d="git diff"
 alias g.d.n="git diff --name-only"
 alias g.f="git fetch --all"
-alias g.e="vim .git/info/exclude"
+alias g.e="vi .git/info/exclude"
 alias g.l="git log --format=\"%C(auto)%h %s %an %cd\" --date=local"
 alias g.g="git log --graph --decorate --oneline --color"
 alias g.m="git merge"
