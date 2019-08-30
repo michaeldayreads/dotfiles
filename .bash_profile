@@ -77,14 +77,14 @@ export -f grex
 # `.unit.log` records unit admin/IT events, issues and workarounds.
 # `.psycle.log` records dev cycle events and findings.
 
-finding() {
+result() {
         # Add note or finding to developer log; maintain focus.
 	STAMP=$(date)
 	echo "${STAMP} .. -- " >> ~/.psycle.log
 	vim ~/.psycle.log
 }
 
-export -f finding
+export -f result
 
 ulog() {
         # Log event significant to unit state in unit log.
@@ -109,6 +109,14 @@ today() {
 }
 
 export -f today
+
+yesterday() {
+    YESTERDAY=$(gdate -d "yesterday" | awk '{print $1" "$2" "$3}')
+    echo $YESTERDAY
+    cat ~/.psycle.log | grep "$YESTERDAY"
+}
+
+export -f yesterday
 
 # export GOPATH=/Users/day/gopath
 # was already # PATH="$PATH:$GOPATH/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin"
