@@ -1,3 +1,3 @@
-curae   Open tasks
-factus  Completed tasks
+curae   Display Open tasks
+factus  Display Completed tasks
 ardui   Edit tasks
