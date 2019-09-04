@@ -1,8 +1,12 @@
-# script vars
-HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S: "
-
 # env vars
 export histdir=~/.histlog/
+
+# Consistent Time Stamp
+cts() {
+  echo $(date '+%a %b %d %T %Z %Y')
+}
+
+export -f cts
 
 # @zancas
 function GITBRANCH {
@@ -37,7 +41,7 @@ function ssh_key_fps_and_fns {
 
 function set_color_prompt {
     RC=$?;
-    DATE="\033[1;36m`date` \033[0m||"
+    DATE="\033[1;36m`cts` \033[0m||"
     USERHOSTBRANCH='\033[1;34m`hostname -s`\033[0m \033[1;34m`whoami`\033[0m \033[1;35m$(GITBRANCH)\033[0m'
     if [  ${RC} -eq 0 ]
     then
@@ -79,7 +83,7 @@ export -f grex
 
 result() {
         # Add note or finding to developer log; maintain focus.
-	STAMP=$(date)
+	STAMP=$(cts)
 	echo "${STAMP} .. -- " >> ~/.psycle.log
 	vi ~/.psycle.log
 }
@@ -88,7 +92,7 @@ export -f result
 
 ulog() {
         # Log event significant to unit state in unit log.
-	STAMP=$(date)
+	STAMP=$(cts)
 	echo $STAMP -- >> ~/.unit.log
 	vi ~/.unit.log
 }
@@ -97,13 +101,13 @@ export -f ulog
 
 focus() {
         # Change focus and note in developer log.
-	STAMP=$(date)
+	STAMP=$(cts)
 	echo "${STAMP} ${1}" >> ~/.psycle.log
 	echo $1 > ~/.focus
 }
 
 today() {
-    TODAY=$(date | awk '{print $1" "$2" "$3}')
+    TODAY=$(cts | awk '{print $1" "$2" "$3}')
     echo $TODAY
     cat ~/.psycle.log | grep "$TODAY"
 }
