@@ -4,3 +4,5 @@ subl() {
 
 export -f subl
 
+# FIXME: Redesign home folder tree #7
+alias wt="clear && cat /Users/md/rc/fragments/working_titles.md"
