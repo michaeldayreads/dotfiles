@@ -153,14 +153,8 @@ psycle() {
 
 export -f psycle
 
-# export GOPATH=/Users/day/gopath
-# was already # PATH="$PATH:$GOPATH/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin"
-# PATH="$PATH:$GOPATH/bin"
-# per brew install of go, adding GOROOT-based install location
-# PATH=$PATH:/usr/local/opt/go/libexec/bin
-# per brew for openssl
-# PATH="/usr/local/opt/openssl/bin:$PATH"
-# export PATH
+PATH="$PATH:/usr/local/go/bin"
+export GOPATH=/Users/day/code
 
 # host / context specific rc
 if [[ -f ~/.context_bash_rc ]]; then
