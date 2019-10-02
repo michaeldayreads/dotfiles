@@ -81,14 +81,21 @@ export -f grex
 # `.unit.log` records unit admin/IT events, issues and workarounds.
 # `.psycle.log` records dev cycle events and findings.
 
-result() {
+hit() {
         # Add note or finding to developer log; maintain focus.
 	STAMP=$(cts)
-	echo "${STAMP} .. -- " >> ~/.psycle.log
-	vi ~/.psycle.log
+	echo "${STAMP} -- ---> ${1}" >> ~/.psycle.log
 }
 
-export -f result
+export -f hit
+
+block() {
+        # Add note or finding to developer log; maintain focus.
+	STAMP=$(cts)
+	echo "${STAMP} -- --| ${1}" >> ~/.psycle.log
+}
+
+export -f block
 
 ulog() {
         # Log event significant to unit state in unit log.
@@ -102,7 +109,7 @@ export -f ulog
 focus() {
         # Change focus and note in developer log.
 	STAMP=$(cts)
-	echo "${STAMP} ${1}" >> ~/.psycle.log
+	echo "${STAMP} -- -- ${1}" >> ~/.psycle.log
 	echo $1 > ~/.focus
 }
 
