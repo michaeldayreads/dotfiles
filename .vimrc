@@ -6,7 +6,7 @@ set softtabstop=4
 set shiftwidth=4
 set autoindent
 
-set colorcolumn=80
+autocmd FileType python set colorcolumn=81
 highlight ColorColumn ctermbg=DarkGrey
 
 set laststatus=2
