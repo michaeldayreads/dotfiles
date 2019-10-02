@@ -89,6 +89,14 @@ hit() {
 
 export -f hit
 
+hack() {
+        # Add note or finding to developer log; maintain focus.
+	STAMP=$(cts)
+	echo "${STAMP} << <>-> dev :: ${1} :: hack - ${2}" >> ~/.psycle.log
+}
+
+export -f hack
+
 block() {
         # Add note or finding to developer log; maintain focus.
 	STAMP=$(cts)
