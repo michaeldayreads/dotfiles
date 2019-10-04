@@ -77,33 +77,55 @@ grex() {
 
 export -f grex
 
-# `.focus` shares data between terminal sessions
-# `.unit.log` records unit admin/IT events, issues and workarounds.
-# `.psycle.log` records dev cycle events and findings.
+# devlog
 
-hit() {
+note() {
         # Add note or finding to developer log; maintain focus.
 	STAMP=$(cts)
 	echo "${STAMP} -- ---> ${1}" >> ~/.psycle.log
 }
 
-export -f hit
+export -f note
+
+gap() {
+        # Log gap.
+	STAMP=$(cts)
+	echo "${STAMP} -- ---?? dev ${1}" >> ~/.psycle.log
+}
+
+export -f gap
 
 hack() {
-        # Add note or finding to developer log; maintain focus.
+        # Log refinement.
 	STAMP=$(cts)
-	echo "${STAMP} << <>-> dev :: ${1} :: hack - ${2}" >> ~/.psycle.log
+	echo "${STAMP} -- ---{} ${1}" >> ~/.psycle.log
 }
 
 export -f hack
 
 block() {
-        # Add note or finding to developer log; maintain focus.
+        # Log un-anticipated, non-deliverable result.
 	STAMP=$(cts)
-	echo "${STAMP} -- --| ${1}" >> ~/.psycle.log
+	echo "${STAMP} -- ---XX ${1}" >> ~/.psycle.log
 }
 
 export -f block
+
+assist() {
+        # Peer assist provided.
+	STAMP=$(cts)
+	echo "${STAMP} -- --[+] ${1}" >> ~/.psycle.log
+}
+
+export -f assist
+
+ask() {
+        # Peer assist requested.
+	STAMP=$(cts)
+	echo "${STAMP} -- --[+] ${1}" >> ~/.psycle.log
+}
+
+export -f ask
 
 ulog() {
         # Log event significant to unit state in unit log.
