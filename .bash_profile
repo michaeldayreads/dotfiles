@@ -112,12 +112,36 @@ block() {
 export -f block
 
 assist() {
-        # Peer assist provided.
+        # Requested assist provided.
 	STAMP=$(cts)
 	echo "${STAMP} -- --[+] ${1}" >> ~/.psycle.log
 }
 
 export -f assist
+
+suggest() {
+        # Suggestion offered.
+	STAMP=$(cts)
+	echo "${STAMP} -- --[++] ${1}" >> ~/.psycle.log
+}
+
+export -f suggest
+
+question() {
+        # Proposed idea questioned.
+	STAMP=$(cts)
+	echo "${STAMP} -- --[+++] ${1}" >> ~/.psycle.log
+}
+
+export -f question
+
+challenge() {
+        # Directive challenged.
+	STAMP=$(cts)
+	echo "${STAMP} -- --[++++] ${1}" >> ~/.psycle.log
+}
+
+export -f challenge
 
 ask() {
         # Peer assist requested.
