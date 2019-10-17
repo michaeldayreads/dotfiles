@@ -285,5 +285,10 @@ alias g.p="git push"
 alias g.r="git rebase"
 alias g.rv="git remote -v"
 alias g.s="git status"
+alias g.smu="git submodule update"
 alias show="git show --name-only"
 alias stash="git stash"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
