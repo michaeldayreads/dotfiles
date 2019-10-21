@@ -88,12 +88,20 @@ note() {
 export -f note
 
 gap() {
-        # Log gap.
+        # Log gap; an issue needs to be opened, tracked down, followed up on etc.
 	STAMP=$(cts)
 	echo "${STAMP} -- ---?? dev ${1}" >> ~/.psycle.log
 }
 
 export -f gap
+
+grok() {
+        # Establish, expand, or re-inforce no reference invocations or patterns.
+	STAMP=$(cts)
+	echo "${STAMP} -- ---[?] dev ${1}" >> ~/.psycle.log
+}
+
+export -f grok
 
 hack() {
         # Log refinement.
