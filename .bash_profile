@@ -61,7 +61,7 @@ function set_color_prompt {
     fi
 
     LINE0=$DATE' '$USERHOSTBRANCH'\n'
-    LINE1='[> '$(cat ~/.focus)' <]\n'
+    LINE1='[> '$(cat ~/.focus)' -> '$(cat ~/.req)' <]\n'
     # LINE1=$(ssh_key_fps_and_fns)'\n'
     LINE2=$PYTHON_VIRTUALENV' -- '$PWDRC'\n'
     PS1=$LINE0$LINE1$LINE2
@@ -146,7 +146,7 @@ export -f challenge
 ask() {
         # Peer assist requested.
 	STAMP=$(cts)
-	echo "${STAMP} -- --[+] ${1}" >> ~/.psycle.log
+	echo "${STAMP} -- --[?] ${1}" >> ~/.psycle.log
 }
 
 export -f ask
@@ -154,7 +154,7 @@ export -f ask
 ulog() {
         # Log event significant to unit state in unit log.
 	STAMP=$(cts)
-	echo $STAMP -- >> ~/.unit.log
+	echo "$STAMP -- >> " ~/.unit.log
 	vi ~/.unit.log
 }
 
@@ -165,11 +165,31 @@ focus() {
 	STAMP=$(cts)
 	echo "${STAMP} -- -- ${1}" >> ~/.psycle.log
 	echo $1 > ~/.focus
+        echo "--" > ~/.req
 }
+
+export -f focus
+
+req () {
+        # Log current requirement / sub task to complete.
+	STAMP=$(cts)
+	echo "${STAMP} -- -- >> ${1}" >> ~/.psycle.log
+	echo $1 > ~/.req
+}
+
+export -f req
+
+incre () {
+        # Log incremental progress.
+	STAMP=$(cts)
+	echo "${STAMP} -- -- [.] ${1}" >> ~/.psycle.log
+}
+
+export -f incre
 
 today() {
     TODAY=$(cts | awk '{print $1" "$2" "$3}')
-    echo $TODAY
+    clear && echo $TODAY
     cat ~/.psycle.log | grep "$TODAY"
 }
 
