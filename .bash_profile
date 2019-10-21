@@ -90,15 +90,23 @@ export -f note
 gap() {
         # Log gap; an issue needs to be opened, tracked down, followed up on etc.
 	STAMP=$(cts)
-	echo "${STAMP} -- ---?? dev ${1}" >> ~/.psycle.log
+	echo "${STAMP} -- -- (?) dev ${1}" >> ~/.psycle.log
 }
 
 export -f gap
 
+issue() {
+        # Story / issue / bug created
+	STAMP=$(cts)
+	echo "${STAMP} -- -- (.) dev ${1}" >> ~/.psycle.log
+}
+
+export -f issue
+
 grok() {
         # Establish, expand, or re-inforce no reference invocations or patterns.
 	STAMP=$(cts)
-	echo "${STAMP} -- ---[?] dev ${1}" >> ~/.psycle.log
+	echo "${STAMP} -- -- {?} dev ${1}" >> ~/.psycle.log
 }
 
 export -f grok
@@ -106,7 +114,7 @@ export -f grok
 hack() {
         # Log refinement.
 	STAMP=$(cts)
-	echo "${STAMP} -- ---{} ${1}" >> ~/.psycle.log
+	echo "${STAMP} -- -- {.} ${1}" >> ~/.psycle.log
 }
 
 export -f hack
@@ -114,15 +122,56 @@ export -f hack
 block() {
         # Log un-anticipated, non-deliverable result.
 	STAMP=$(cts)
-	echo "${STAMP} -- ---XX ${1}" >> ~/.psycle.log
+	echo "${STAMP} -- -- [X] ${1}" >> ~/.psycle.log
 }
 
 export -f block
 
+ask() {
+        # Peer assist requested.
+	STAMP=$(cts)
+	echo "${STAMP} -- -- [?] ${1}" >> ~/.psycle.log
+}
+
+export -f ask
+
+incre() {
+        # Log incremental progress of any kind, but definitely when you are unblocked.
+	STAMP=$(cts)
+	echo "${STAMP} -- -- [.] ${1}" >> ~/.psycle.log
+}
+
+export -f incre
+
+merge() {
+        # Code landed for internal or external production use.
+	STAMP=$(cts)
+	echo "${STAMP} -- -- <.> ${1}" >> ~/.psycle.log
+}
+
+export -f merge
+
+switch() {
+        # Interruption 
+	STAMP=$(cts)
+	echo "${STAMP} -- -- |!| ${1}" >> ~/.psycle.log
+}
+
+export -f switch
+
+back() {
+       # Back to task prior to interruption
+	STAMP=$(cts)
+	echo "${STAMP} -- -- |.| ${1}" >> ~/.psycle.log
+
+}
+
+export -f back
+
 assist() {
         # Requested assist provided.
 	STAMP=$(cts)
-	echo "${STAMP} -- --[+] ${1}" >> ~/.psycle.log
+	echo "${STAMP} -- -- [+] ${1}" >> ~/.psycle.log
 }
 
 export -f assist
@@ -130,7 +179,7 @@ export -f assist
 suggest() {
         # Suggestion offered.
 	STAMP=$(cts)
-	echo "${STAMP} -- --[++] ${1}" >> ~/.psycle.log
+	echo "${STAMP} -- -- [++] ${1}" >> ~/.psycle.log
 }
 
 export -f suggest
@@ -138,7 +187,7 @@ export -f suggest
 question() {
         # Proposed idea questioned.
 	STAMP=$(cts)
-	echo "${STAMP} -- --[+++] ${1}" >> ~/.psycle.log
+	echo "${STAMP} -- -- [+++] ${1}" >> ~/.psycle.log
 }
 
 export -f question
@@ -146,18 +195,10 @@ export -f question
 challenge() {
         # Directive challenged.
 	STAMP=$(cts)
-	echo "${STAMP} -- --[++++] ${1}" >> ~/.psycle.log
+	echo "${STAMP} -- -- [++++] ${1}" >> ~/.psycle.log
 }
 
 export -f challenge
-
-ask() {
-        # Peer assist requested.
-	STAMP=$(cts)
-	echo "${STAMP} -- --[?] ${1}" >> ~/.psycle.log
-}
-
-export -f ask
 
 ulog() {
         # Log event significant to unit state in unit log.
@@ -186,14 +227,6 @@ req () {
 }
 
 export -f req
-
-incre () {
-        # Log incremental progress.
-	STAMP=$(cts)
-	echo "${STAMP} -- -- [.] ${1}" >> ~/.psycle.log
-}
-
-export -f incre
 
 today() {
     TODAY=$(cts | awk '{print $1" "$2" "$3}')
