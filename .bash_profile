@@ -162,7 +162,7 @@ export -f incre
 merge() {
         # Code landed for internal or external production use.
 	STAMP=$(cts)
-	echo "${STAMP} -- -- <.> ${1}" >> ~/.psycle.log
+	echo "${STAMP} -- --  <> ${1}" >> ~/.psycle.log
 }
 
 export -f merge
@@ -219,7 +219,7 @@ export -f challenge
 ulog() {
         # Log event significant to unit state in unit log.
 	STAMP=$(cts)
-	echo "$STAMP -- >> " ~/.unit.log
+	echo "$STAMP -- ${1}" >> ~/.unit.log
 	vi ~/.unit.log
 }
 
@@ -263,7 +263,7 @@ export -f yesterday
 
 task() {
         # Add task to deliverables.
-        sed -i "2 i\ [] $1" ~/.deliverables.md
+        sed --in-place --follow-symlinks "2 i\ [] $1" ~/.deliverables.md
         STAMP=$(cts)
 	echo "${STAMP} -- -- <.> ${1}" >> ~/.psycle.log
 }
@@ -278,13 +278,13 @@ inflight() {
 
 export -f inflight
 
-delivered() {
+landed() {
   echo
-  cat ~/.deliverables.md | grep "<.>"
+  cat ~/.deliverables.md | grep "<>"
   echo
 }
 
-export -f delivered
+export -f landed
 
 tasks() {
   vi ~/.deliverables.md
