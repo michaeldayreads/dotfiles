@@ -82,10 +82,18 @@ export -f grex
 note() {
         # Add note or finding to developer log; maintain focus.
 	STAMP=$(cts)
-	echo "${STAMP} -- ---> ${1}" >> ~/.psycle.log
+	echo "${STAMP} -- -- --> ${1}" >> ~/.psycle.log
 }
 
 export -f note
+
+craft() {
+        # Observe behaviors that form the basis of effective or sub-optimal craft.
+	STAMP=$(cts)
+	echo "${STAMP} -- -- [*] ${1}" >> ~/.psycle.log
+}
+
+export -f craft
 
 gap() {
         # Log gap; an issue needs to be opened, tracked down, followed up on etc.
@@ -122,7 +130,7 @@ export -f hack
 block() {
         # Log un-anticipated, non-deliverable result.
 	STAMP=$(cts)
-	echo "${STAMP} -- -- [X] ${1}" >> ~/.psycle.log
+	echo "${STAMP} -- -- >?< ${1}" >> ~/.psycle.log
 }
 
 export -f block
@@ -130,10 +138,18 @@ export -f block
 ask() {
         # Peer assist requested.
 	STAMP=$(cts)
-	echo "${STAMP} -- -- [?] ${1}" >> ~/.psycle.log
+	echo "${STAMP} -- -- >.< ${1}" >> ~/.psycle.log
 }
 
 export -f ask
+
+unex() {
+        # Unexpected result, but not yet blocked.
+	STAMP=$(cts)
+	echo "${STAMP} -- -- [?] ${1}" >> ~/.psycle.log
+}
+
+export -f unex
 
 incre() {
         # Log incremental progress of any kind, but definitely when you are unblocked.
@@ -162,7 +178,7 @@ export -f switch
 back() {
        # Back to task prior to interruption
 	STAMP=$(cts)
-	echo "${STAMP} -- -- |.| ${1}" >> ~/.psycle.log
+	echo "${STAMP} -- -- |.| Back." >> ~/.psycle.log
 
 }
 
@@ -245,27 +261,36 @@ yesterday() {
 
 export -f yesterday
 
-curae() {
+task() {
+        # Add task to deliverables.
+        sed -i "2 i\ [] $1" ~/.deliverables.md
+        STAMP=$(cts)
+	echo "${STAMP} -- -- <.> ${1}" >> ~/.psycle.log
+}
+
+export -f task
+
+inflight() {
   echo
   cat ~/.deliverables.md | grep "\[\]"
   echo
 }
 
-export -f curae
+export -f inflight
 
-factus() {
+delivered() {
   echo
-  cat ~/.deliverables.md | grep "<>"
+  cat ~/.deliverables.md | grep "<.>"
   echo
 }
 
-export -f factus
+export -f delivered
 
-ardui() {
+tasks() {
   vi ~/.deliverables.md
 }
 
-export -f ardui
+export -f tasks
 
 psycle() {
   echo
