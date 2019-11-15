@@ -280,7 +280,7 @@ export -f inflight
 
 landed() {
   echo
-  cat ~/.deliverables.md | grep "<>"
+  cat ~/.deliverables.md | grep "<>\|{}\|()"
   echo
 }
 
