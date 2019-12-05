@@ -8,14 +8,15 @@ heading     Establish, define, refine objectives & principles of priority.
 
 symbol  cmd         description
 --------------------------------------------------------------------------
-(?)     gap         An issue needs to be created.
-(.)     issue       An issue _has_ been created.
+(?)     gap         Question, or open an issue if not quick to close.
+(.)     issue       An issue has been created to track a gap.
 {?}     grok        Some knowledge needs to be implemented / consolidated.
 {.}     hack        Some knowledge _has_ been implemented / consolidated.
 [?]     unex        An unexpected result, but not yet blocked.
 [.]     incre       Incremental progress has been made!
+                      Note this includes gaps closed without issues.
 >?<     block       I am unable to proceed without help.
->.<     ask         Help has been sought, where n is people asked.
+>.<     ask         Help has been sought.
 <?>     task        *ADD* a new task to deliverables and log.
 <.>     merge       Deliverable progress has been made!
 |!|     switch      Interrupted by bar.

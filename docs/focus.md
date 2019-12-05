@@ -48,9 +48,10 @@ Infix communicates the transition, from the last cycle, the focus of this cycle 
 |    ---    | - collaboration -|
 | `peer:`   | Direct collaboration on code. |
 | `assist:` | Assist / unblock a colleague. |
-| `pass:`   | Seek assistance from a colleague. |
+| `ask:`    | Seek assistance from a colleague. |
 | `review:` | Code review for a colleague. |
 | `demo:`   | Prep for demos & presentations. (`sync:` to deliver)|
+| `drive:`  | Own and organize distributed effort. | 
 |    ---    | - communication -|
 | `sync:`   | Meetings where S/N > 0.67. |
 | `noise:`  | Meetings where S/N < 0.67. |
