@@ -302,6 +302,7 @@ export -f psycle
 
 PATH="$PATH:/usr/local/go/bin"
 export GOPATH=/Users/day/code
+PATH="$PATH=$PATH:$GOPATH/bin"
 
 # host / context specific rc
 if [[ -f ~/.context_bash_rc ]]; then
