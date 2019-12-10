@@ -254,7 +254,7 @@ export -f today
 
 # FIXME: this is mac specific, presumes gdate, should test for gdate/darwin
 yesterday() {
-    YESTERDAY=$(gdate -d "yesterday" | awk '{print $1" "$2" "$3}')
+    YESTERDAY=$(gdate '+%a %b %d %T %Z %Y' -d "yesterday" | awk '{print $1" "$2" "$3}')
     echo $YESTERDAY
     cat ~/.psycle.log | grep "$YESTERDAY"
 }
