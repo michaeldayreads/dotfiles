@@ -44,11 +44,12 @@ Infix communicates the transition, from the last cycle, the focus of this cycle 
 | `poc:`    | Implemented for demonstration; use grok if not shared. |
 | `grok:`   | Implement/do to understand; includes replication, triage, etc. |
 | `test:`   | Explicitly manual testing/exploration. |
-| `hack:`   | For personal use. |
+| `hack:`   | Refine IC tools. |
 |    ---    | - collaboration -|
 | `peer:`   | Direct collaboration on code. |
-| `assist:` | Assist / unblock a colleague. |
+| `forum:`  | Informal discussion around requirements / implementation. |
 | `ask:`    | Seek assistance from a colleague. |
+| `assist:` | Assist / unblock a colleague. |
 | `review:` | Code review for a colleague. |
 | `demo:`   | Prep for demos & presentations. (`sync:` to deliver)|
 | `drive:`  | Own and organize distributed effort. | 
