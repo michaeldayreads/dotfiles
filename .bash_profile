@@ -1,3 +1,5 @@
+export HISTCONTROL=ignorespace:ignoredups
+
 # env vars
 export histdir=~/.histlog/
 
