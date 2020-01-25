@@ -6,6 +6,10 @@ field       Review existing, prioritized tasks, evaluate resources, focus.
 bearing     Evaluate progress, re-prioritize.
 heading     Establish, define, refine objectives & principles of priority.
 
+Scope
+-----
+Origin or target of a deliverable may be IC, team, site, project, unit or org.
+
 symbol  cmd         description
 --------------------------------------------------------------------------
 (?)     gap         Question, or open an issue if not quick to close.
