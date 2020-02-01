@@ -5,4 +5,6 @@ subl() {
 export -f subl
 
 # FIXME: Redesign home folder tree #7
-alias wt="clear && cat /Users/md/rc/fragments/working_titles.md"
+alias wt="clear && cat /Users/md/rc/fragments/writing-projects/working_titles.md"
+
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
