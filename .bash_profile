@@ -320,7 +320,7 @@ fi
 alias grep="grep --color"
 alias ls="ls -al -G"
 alias histlog="history > ~/.histlog/$TERM_SESSION_ID.log"
-alias tb="clear && cat ~/.focus &&  ~/code/rc/dotfiles/tools/timebox.sh"
+alias tb="clear && cat ~/.focus ~/.req && ~/code/rc/dotfiles/tools/timebox.sh"
 alias toc="clear && ls -l -G"
 
 # python
