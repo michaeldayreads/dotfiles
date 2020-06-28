@@ -1,7 +1,6 @@
-export HISTCONTROL=ignorespace:ignoredups
-
 # env vars
 export histdir=~/.histlog/
+export HISTCONTROL=ignorespace:ignoredups
 
 # Consistent Time Stamp
 cts() {
@@ -304,7 +303,6 @@ export -f psycle
 
 PATH="$PATH:/usr/local/go/bin"
 export GOPATH=/Users/day/code
-PATH="$PATH=$PATH:$GOPATH/bin"
 
 # host / context specific rc
 if [[ -f ~/.context_bash_rc ]]; then
@@ -320,12 +318,12 @@ fi
 alias grep="grep --color"
 alias ls="ls -al -G"
 alias histlog="history > ~/.histlog/$TERM_SESSION_ID.log"
-alias tb="clear && cat ~/.focus ~/.req && ~/code/rc/dotfiles/tools/timebox.sh"
+alias tb="clear && cat ~/.focus &&  ~/code/rc/dotfiles/tools/timebox.sh"
 alias toc="clear && ls -l -G"
 
 # python
-alias bpylog="cp ~/.pythonhist ~/.pythonhistlog/$TERM_SESSION_ID.log"
-alias py.lint="clear && ~/dotfiles/tools/linter.sh"
+# alias bpylog="cp ~/.pythonhist ~/.pythonhistlog/$TERM_SESSION_ID.log"
+# alias py.lint="clear && ~/dotfiles/tools/linter.sh"
 
 ## navigation vars
 shopt -s cdable_vars
@@ -350,8 +348,6 @@ alias b.s="source ~/.bash_profile"
 alias aa="alias -p"
 alias f.n="find . -name"
 alias hist="history | grep"
-alias py2="python"
-alias py3="python3"
 alias pyl="clear && flake8 . && pep257 ."
 alias ve="ls -l ~/.venv"
 
@@ -375,9 +371,9 @@ alias g.r="git rebase"
 alias g.rv="git remote -v"
 alias g.s="git status"
 alias g.smu="git submodule update"
-alias g.wt="git worktree"
 alias show="git show --name-only"
 alias stash="git stash"
+
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
