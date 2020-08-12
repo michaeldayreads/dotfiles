@@ -249,6 +249,7 @@ today() {
     TODAY=$(cts | awk '{print $1" "$2" "$3}')
     clear && echo $TODAY
     cat ~/.psycle.log | grep "$TODAY"
+    inflight
 }
 
 export -f today
